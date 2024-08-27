@@ -1,0 +1,55 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 28,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base-all",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "toolchainFile": "${sourceDir}/thirdparty/vcpkg/scripts/buildsystems/vcpkg.cmake",
+            "cacheVariables": {
+                "CACTI_ENABLE_FREETYPE": true,
+                "CACTI_ENABLE_EXAMPLES": true,
+                "CACTI_FORCE_OPENGL_BACKEND": true
+            }
+        },
+        {
+            "name": "cfg-debug",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CACTI_ENABLE_ASSERTIONS": true
+            }
+        },
+        {
+            "name": "cfg-release",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "CACTI_ENABLE_ASSERTIONS": false
+            }
+        },
+        {
+            "name": "macos-examples-debug",
+            "inherits": [
+                "base-all",
+                "cfg-debug"
+            ],
+            "displayName": "MacOS Debug + Examples",
+            "generator": "Ninja"
+        },
+        {
+            "name": "macos-examples-release",
+            "inherits": [
+                "base-all",
+                "cfg-release"
+            ],
+            "displayName": "MacOS Release + Examples",
+            "generator": "Ninja"
+        }
+    ]
+}
