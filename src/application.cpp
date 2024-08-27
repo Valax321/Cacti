@@ -71,6 +71,7 @@ void init_imgui(const app_init_params& params) {
 
     auto& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleViewports;
+    io.IniFilename = nullptr;
 
     if (params.callbacks.imguiSetup) {
         params.callbacks.imguiSetup();

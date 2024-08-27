@@ -50,12 +50,15 @@ void on_init() {
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard |
                       ImGuiConfigFlags_ViewportsEnable |
                       ImGuiConfigFlags_DockingEnable;
-    io.IniFilename = nullptr;
     io.ConfigDockingWithShift = true;
     io.ConfigWindowsMoveFromTitleBarOnly = true;
+
+    auto& style = ImGui::GetStyle();
+    style.FrameRounding = 2;
+    style.WindowMenuButtonPosition = ImGuiDir_Right;
 }
 
-void load_fonts() { fontdb::load_font("Solway-Regular.ttf", 13.0f); }
+void load_fonts() { fontdb::load_font("NotoSans-Regular.ttf", 16.0f); }
 
 void on_gui() {
     ImGui::DockSpaceOverViewport();

@@ -1,5 +1,8 @@
 {
     "editor.formatOnSave": true,
+    "cmake.debugConfig": {
+        "cwd": "${workspaceFolder}/examples/data"
+    },
     "files.associations": {
         "ios": "cpp",
         "__bit_reference": "cpp",
